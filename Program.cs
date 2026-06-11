@@ -18,6 +18,7 @@ builder.Services.AddCors(options =>
                       });
 });
 builder.Services.AddScoped<IGeminiService, GeminiService>();
+builder.Services.AddSingleton<FirestoreService>();
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

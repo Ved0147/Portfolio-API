@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PortfolioAPI.Models;
-using Mscc.GenerativeAI;
-
-using Google.Cloud.Firestore;
+﻿using Google.Cloud.Firestore;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioAPI.Models;
 
@@ -26,6 +22,24 @@ namespace PortfolioAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Ask(ChatRequest request)
         {
+            var chatDoc = _db.Collection("counters").Document("aiChats");
+
+            var chatSnapshot =
+                await chatDoc.GetSnapshotAsync();
+
+            int chatCount = 0;
+
+            if (chatSnapshot.Exists)
+            {
+                chatCount =
+                    chatSnapshot.GetValue<int>("count");
+            }
+
+            await chatDoc.SetAsync(
+                new
+                {
+                    count = chatCount + 1
+                });
             var docRef = _db.Collection("portfolio")
                             .Document("info");
 
@@ -64,7 +78,31 @@ namespace PortfolioAPI.Controllers
             {
                 answer = data["name"].ToString();
             }
-
+            if (question == "hi" ||
+                question == "hello" ||
+                question == "hey")
+            {
+                answer =
+                    "Hi! I'm Ved's AI Assistant. How may I assist you?";
+            }
+            else if (question.Contains("how are you"))
+            {
+                answer =
+                    "I'm doing great! I'm here to help you learn more about Ved's professional background.";
+            }
+            else if (question.Contains("thank"))
+            {
+                answer =
+                    "You're welcome! Feel free to ask anything about Ved's experience and projects.";
+            }
+            await _db
+                    .Collection("chatHistory")
+                    .AddAsync(new
+                    {
+                        question = request.Question,
+                        answer = answer,
+                        timestamp = Timestamp.GetCurrentTimestamp()
+                    });
             return Ok(new
             {
                 answer
