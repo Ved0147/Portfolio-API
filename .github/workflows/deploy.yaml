@@ -34,5 +34,4 @@ jobs:
           service: portfolio-api
           source: .
           region: asia-south1
-
-            
+          flags: '--clear-base-image'
