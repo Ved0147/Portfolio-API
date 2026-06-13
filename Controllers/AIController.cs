@@ -83,7 +83,7 @@ namespace PortfolioAPI.Controllers
                 question == "hey")
             {
                 answer =
-                    "Hi! I'm Ved's AI Assistant. How may I assist you?";
+                    "Hi! I'm Ved AI Assistant. How may I assist you?";
             }
             else if (question.Contains("how are you"))
             {
