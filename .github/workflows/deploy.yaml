@@ -28,10 +28,11 @@ jobs:
         run: |
           gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
 
-      - name: Deploy Cloud Run
-        run: |
-          gcloud run deploy portfolio-api \
-            --source . \
-            --region asia-south1 \
-            --allow-unauthenticated \
-            --quiet
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: portfolio-api
+          source: .
+          region: asia-south1
+
+            
