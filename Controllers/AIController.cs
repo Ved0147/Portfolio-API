@@ -96,7 +96,8 @@ namespace PortfolioAPI.Controllers
             else if (question.Contains("thank"))
             {
                 answer =
-                    "You're welcome! Feel free to ask anything about Ved's experience and projects.";
+                    "Welcome"
+                    //"You're welcome! Feel free to ask anything about Ved's experience and projects.";
             }
             await _db
                     .Collection("chatHistory")
