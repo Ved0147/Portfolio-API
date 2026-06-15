@@ -23,7 +23,7 @@ namespace PortfolioAPI.Controllers
         {
             return Ok(new
             {
-                url = "https://storage.googleapis.com/ved-portfolio-website/Ved_Vaiwala_Resume.pdf"
+                url = "https://storage.googleapis.com/ved-portfolio-prod/Ved_Vaiwala_Resume.pdf"
             });
         }
 
