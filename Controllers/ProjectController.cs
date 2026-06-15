@@ -34,7 +34,7 @@ public class ProjectsController : ControllerBase
 
                 Description = doc.GetValue<string>("description"),
 
-                GithubUrl =doc.GetValue<string>("github"),
+                //GithubUrl =doc.GetValue<string>("github"),
 
                 //Featured =doc.GetValue<bool>("featured"),
 
