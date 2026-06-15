@@ -12,8 +12,11 @@ namespace PortfolioAPI.Controllers
         {
             _db = new FirestoreDbBuilder
             {
-                ProjectId = "project-7933a77a-b6a8-43ad-819",
-                DatabaseId = "ved-portfolio"
+                //ProjectId = "project-7933a77a-b6a8-43ad-819",
+                //DatabaseId = "ved-portfolio"
+                ProjectId = "portfolio-prod-499308",
+                DatabaseId = "portfolio-prod"
+
             }.Build();
         }
         [HttpGet]
