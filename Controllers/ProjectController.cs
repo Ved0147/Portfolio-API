@@ -36,7 +36,7 @@ public class ProjectsController : ControllerBase
 
                 //GithubUrl =doc.GetValue<string>("githubUrl"),
 
-                //Featured =doc.GetValue<bool>("featured"),
+                Featured =doc.GetValue<bool>("featured"),
 
                 //Order =doc.GetValue<int>("order"),
 
@@ -44,7 +44,7 @@ public class ProjectsController : ControllerBase
 
                 Technologies = doc.GetValue<List<string>>("techStack"),
 
-                Features =doc.GetValue<List<string>>("features")
+                //Features =doc.GetValue<List<string>>("features")
             })
             .OrderBy(x => x.Order)
             .ToList();

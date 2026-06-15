@@ -10,7 +10,7 @@
 
         public string GithubUrl { get; set; } = string.Empty;
 
-        public bool Featured { get; set; }
+        //public bool Featured { get; set; }
 
         public int Order { get; set; }
 
@@ -19,7 +19,7 @@
         public List<string> Technologies { get; set; }
             = new();
 
-        public List<string> Features { get; set; }
+        public List<string> Featured { get; set; }
             = new();
     }
 }
