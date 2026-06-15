@@ -18,7 +18,6 @@ namespace PortfolioAPI.Controllers
                 //DatabaseId = "ved-portfolio"
                 ProjectId = "portfolio-prod-499308",
                 DatabaseId = "portfolio-prod"
-
             }.Build();
         }
 
