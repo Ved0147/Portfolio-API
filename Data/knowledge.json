@@ -118,5 +118,11 @@
     "id": "career_goals",
     "category": "career",
     "content": "Ved is actively building expertise in Cloud Engineering, DevOps, and Generative AI with a focus on scalable systems, automation, and modern software architecture."
+  },
+  {
+    "id": "skills_summary",
+    "category": "skills",
+    "title": "Technical Skills Summary",
+    "content": "Ved's primary skills include ASP.NET Core, C#, REST APIs, Entity Framework Core, Firestore, Google Cloud Platform, Cloud Run, Cloud Storage, GitHub Actions, React, TypeScript, JavaScript, HTML, CSS, and Generative AI."
   }
 ]
