@@ -1,7 +1,12 @@
-﻿namespace PortfolioAPI.Services
+﻿using Mscc.GenerativeAI.Types;
+
+namespace PortfolioAPI.Services
 {
     public interface IGeminiService
     {
-        Task<string> AskAsync(string question);
+        Task<string> Ask(
+     string question,
+     string context,
+     List<PortfolioAPI.Models.ChatMessage> history);
     }
 }

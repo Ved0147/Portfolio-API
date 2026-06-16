@@ -1,6 +1,7 @@
 ﻿using Google.Cloud.Firestore;
 using Microsoft.AspNetCore.Mvc;
 using PortfolioAPI.Models;
+using PortfolioAPI.Services;
 
 namespace PortfolioAPI.Controllers
 {
@@ -8,103 +9,49 @@ namespace PortfolioAPI.Controllers
     [Route("api/[controller]")]
     public class AIController : ControllerBase
     {
-        private readonly FirestoreDb _db;
+        private readonly FirestoreService _db;
+        private readonly RetrievalService _retrievalService;
+        private readonly IGeminiService _geminiService;
 
-        public AIController()
+        public AIController(RetrievalService retrievalService,
+            FirestoreService db,
+            IGeminiService geminiService)
         {
-            _db = new FirestoreDbBuilder
-            {
-                //ProjectId = "project-7933a77a-b6a8-43ad-819",
-                //DatabaseId = "ved-portfolio"
-                ProjectId = "portfolio-prod-499308",
-                DatabaseId = "portfolio-prod"
-            }.Build();
+            _db = db;
+            _retrievalService = retrievalService;
+            _geminiService = geminiService;
         }
 
-        [HttpPost]
+        [HttpPost("ask")]
         public async Task<IActionResult> Ask(ChatRequest request)
         {
-            var chatDoc = _db.Collection("counters").Document("aiChats");
+            var docs =
+                await _retrievalService
+                    .Search(request.Question);
 
-            var chatSnapshot =
-                await chatDoc.GetSnapshotAsync();
+            var context =
+                string.Join(
+                    "\n\n",
+                    docs.Select(x => x.Content));
 
-            int chatCount = 0;
+            var answer =
+                await _geminiService
+                    .Ask(
+                        request.Question,
+                        context,
+                        request.History);
 
-            if (chatSnapshot.Exists)
-            {
-                chatCount =
-                    chatSnapshot.GetValue<int>("count");
-            }
-
-            await chatDoc.SetAsync(
-                new
+            await _db.Db
+                .Collection("chatHistory")
+                .AddAsync(new
                 {
-                    count = chatCount + 1
+                    question =
+                        request.Question,
+                    answer,
+                    timestamp =
+                        Timestamp.GetCurrentTimestamp()
                 });
-            var docRef = _db.Collection("portfolio")
-                            .Document("info");
 
-            var snapshot = await docRef.GetSnapshotAsync();
-
-            if (!snapshot.Exists)
-            {
-                return NotFound("Portfolio data not found");
-            }
-
-            var data = snapshot.ToDictionary();
-
-            string question =
-                request.Question.ToLower();
-
-            string answer =
-                "I don't have information about that.";
-
-            if (question.Contains("skill"))
-            {
-                answer = data["skills"].ToString();
-            }
-            else if (question.Contains("project"))
-            {
-                answer = data["projects"].ToString();
-            }
-            else if (question.Contains("goal"))
-            {
-                answer = data["goal"].ToString();
-            }
-            else if (question.Contains("role"))
-            {
-                answer = data["role"].ToString();
-            }
-            else if (question.Contains("name"))
-            {
-                answer = data["name"].ToString();
-            }
-            if (question == "hi" ||
-                question == "hello" ||
-                question == "hey")
-            {
-                answer =
-                    "Hi! I'm Ved AI Assistant. How may I assist you?";
-            }
-            else if (question.Contains("how are you"))
-            {
-                answer =
-                    "I'm doing great! I'm here to help you learn more about Ved's professional background.";
-            }
-            else if (question.Contains("thank"))
-            {
-                answer =
-                    "You're welcome! Feel free to ask anything about Ved's experience and projects.";
-            }
-            await _db
-                    .Collection("chatHistory")
-                    .AddAsync(new
-                    {
-                        question = request.Question,
-                        answer = answer,
-                        timestamp = Timestamp.GetCurrentTimestamp()
-                    });
             return Ok(new
             {
                 answer

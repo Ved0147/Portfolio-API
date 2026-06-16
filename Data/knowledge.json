@@ -1,0 +1,116 @@
+[
+  {
+    "id": "summary",
+    "category": "profile",
+    "title": "Professional Summary",
+    "content": "Ved Vaiwala is a Software Developer with 1.5+ years of experience in backend development, web APIs, enterprise software solutions, cloud-native applications, CI/CD automation, and AI-powered web applications. He specializes in ASP.NET Core, C#, SQL Server, REST APIs, Firestore, and Google Cloud Platform."
+  },
+  {
+    "id": "skills_backend",
+    "category": "skills",
+    "title": "Backend Skills",
+    "content": "Ved has hands-on experience with C#, ASP.NET Core Web API, REST APIs, CQRS, Entity Framework Core, and MVC architecture. He has built backend systems, enterprise APIs, and scalable web applications."
+  },
+  {
+    "id": "skills_frontend",
+    "category": "skills",
+    "title": "Frontend Skills",
+    "content": "Ved works with HTML, CSS, JavaScript, and TypeScript to create responsive web applications and user interfaces."
+  },
+  {
+    "id": "skills_cloud",
+    "category": "skills",
+    "title": "Cloud Skills",
+    "content": "Ved has experience using Google Cloud Platform including Firestore, Cloud Storage, and Cloud Run. He deploys cloud-native applications and manages cloud infrastructure."
+  },
+  {
+    "id": "skills_tools",
+    "category": "skills",
+    "title": "Tools",
+    "content": "Ved uses Git, GitHub, Postman, Google AI Studio, GitHub Actions, Firestore, and containerized deployment workflows."
+  },
+  {
+    "id": "experience_thoughtspark",
+    "category": "experience",
+    "title": "Implementation Consultant",
+    "company": "Thoughtspark",
+    "content": "Ved works as an Implementation Consultant at Thoughtspark. He analyzes client requirements, configures business rules, designs workflows, implements UI configurations, builds data models, and supports role-based authorization systems."
+  },
+  {
+    "id": "experience_kombee",
+    "category": "experience",
+    "title": ".NET Developer",
+    "company": "Kombee",
+    "content": "Ved worked as a .NET Developer at Kombee. He led development of Philips SmartConnect backend modules, enhanced Exxon Mobil enterprise platforms, participated in Agile ceremonies, and developed scalable systems using MVC architecture."
+  },
+  {
+    "id": "project_portfolio_overview",
+    "category": "project",
+    "title": "Personal Portfolio Platform",
+    "content": "Ved built a full-stack portfolio platform using React, TypeScript, ASP.NET Core Web API, Firestore, Google Cloud Run, Google Cloud Storage, and GitHub Actions."
+  },
+  {
+    "id": "project_portfolio_ai",
+    "category": "project",
+    "title": "AI Assistant",
+    "content": "Ved integrated an AI-powered chatbot into his portfolio platform. The chatbot answers questions about his experience, skills, projects, and professional background."
+  },
+  {
+    "id": "project_portfolio_cloud",
+    "category": "project",
+    "title": "Cloud Architecture",
+    "content": "The portfolio platform uses Firestore for analytics, Cloud Run for backend hosting, and Cloud Storage for frontend hosting. It follows cloud-native deployment practices."
+  },
+  {
+    "id": "project_portfolio_cicd",
+    "category": "project",
+    "title": "CI/CD Implementation",
+    "content": "Ved implemented automated deployment pipelines using GitHub Actions for both frontend and backend cloud deployments."
+  },
+  {
+    "id": "project_ebookstore",
+    "category": "project",
+    "title": "EBookStore",
+    "content": "Ved developed an Amazon-style online bookstore using C#, ASP.NET MVC, MySQL, HTML, CSS, and JavaScript. Features included authentication, shopping cart functionality, book listings, and admin management."
+  },
+  {
+    "id": "education_bsc",
+    "category": "education",
+    "content": "Bachelor of Science in Information Technology from Veer Narmad South Gujarat University."
+  },
+  {
+    "id": "education_msc",
+    "category": "education",
+    "content": "Master of Science in Information Technology from Veer Narmad South Gujarat University."
+  },
+  {
+    "id": "certification_genai",
+    "category": "certification",
+    "content": "Completed the Generative AI for Everyone certification."
+  },
+  {
+    "id": "api_experience",
+    "category": "specialization",
+    "content": "Ved has professional experience designing, developing, and maintaining REST APIs using ASP.NET Core Web API and enterprise backend architectures."
+  },
+  {
+    "id": "cloud_experience",
+    "category": "specialization",
+    "content": "Ved has experience deploying applications to Google Cloud Run, managing Firestore databases, hosting assets in Cloud Storage, and building cloud-native solutions."
+  },
+  {
+    "id": "devops_experience",
+    "category": "specialization",
+    "content": "Ved has practical experience implementing CI/CD pipelines using GitHub Actions and automated deployment workflows."
+  },
+  {
+    "id": "ai_experience",
+    "category": "specialization",
+    "content": "Ved has worked with Google AI Studio and built AI-powered web applications including a portfolio chatbot assistant."
+  },
+  {
+    "id": "career_goals",
+    "category": "career",
+    "content": "Ved is actively building expertise in Cloud Engineering, DevOps, and Generative AI with a focus on scalable systems, automation, and modern software architecture."
+  }
+]
