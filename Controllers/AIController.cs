@@ -21,7 +21,29 @@ namespace PortfolioAPI.Controllers
             _retrievalService = retrievalService;
             _geminiService = geminiService;
         }
+        private async Task IncrementChatCount()
+        {
+            var docRef = _db.Db
+                .Collection("counters")
+                .Document("aiChats");
 
+            var snapshot =
+                await docRef.GetSnapshotAsync();
+
+            int count = 0;
+
+            if (snapshot.Exists)
+            {
+                count =
+                    snapshot.GetValue<int>("count");
+            }
+
+            await docRef.SetAsync(
+                new
+                {
+                    count = count + 1
+                });
+        }
         [HttpPost("ask")]
         public async Task<IActionResult> Ask(ChatRequest request)
         {
@@ -40,6 +62,7 @@ namespace PortfolioAPI.Controllers
                         request.Question,
                         context,
                         request.History);
+            await IncrementChatCount();
 
             await _db.Db
                 .Collection("chatHistory")
