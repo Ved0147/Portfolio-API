@@ -45,7 +45,7 @@ namespace PortfolioAPI.Services
         3. Summarize instead of copying context.
         4. If information is unavailable, say:
            "I don't have information about that."
-        5. Answer in first-person when describing Ved.
+        5. Answer in second-person when describing Ved.
         6. Use conversation history to understand follow-up questions.
 
         Conversation History:
