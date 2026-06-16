@@ -44,6 +44,12 @@
     "content": "Ved worked as a .NET Developer at Kombee. He led development of Philips SmartConnect backend modules, enhanced Exxon Mobil enterprise platforms, participated in Agile ceremonies, and developed scalable systems using MVC architecture."
   },
   {
+    "id": "experience_summary",
+    "category": "experience",
+    "title": "Companies Worked For",
+    "content": "Ved has worked at Thoughtspark as an Implementation Consultant and Kombee as a .NET Developer."
+  },
+  {
     "id": "project_portfolio_overview",
     "category": "project",
     "title": "Personal Portfolio Platform",

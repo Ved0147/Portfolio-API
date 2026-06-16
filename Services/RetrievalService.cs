@@ -12,6 +12,37 @@ namespace PortfolioAPI.Services
         {
             _db = firestoreService.Db;
         }
+        private static readonly Dictionary<string, string[]>
+CategoryKeywords = new()
+{
+    ["experience"] =
+    [
+        "company",
+        "companies",
+        "worked",
+        "job",
+        "jobs",
+        "career",
+        "employment"
+    ],
+
+    ["skills"] =
+    [
+        "skill",
+        "skills",
+        "technology",
+        "technologies",
+        "stack"
+    ],
+
+    ["project"] =
+    [
+        "project",
+        "projects",
+        "application",
+        "portfolio"
+    ]
+};
         private static readonly HashSet<string> StopWords =
                                                             [
                                                                 "what",
@@ -57,25 +88,14 @@ namespace PortfolioAPI.Services
 
                     foreach (var word in words)
                     {
-                        if (item.Title
-                            .Contains(word,
-                                StringComparison.OrdinalIgnoreCase))
+                        if (CategoryKeywords.TryGetValue(
+                            item.Category.ToLower(),
+                            out var aliases))
                         {
-                            score += 5;
-                        }
-
-                        if (item.Category
-                            .Contains(word,
-                                StringComparison.OrdinalIgnoreCase))
-                        {
-                            score += 3;
-                        }
-
-                        if (item.Content
-                            .Contains(word,
-                                StringComparison.OrdinalIgnoreCase))
-                        {
-                            score += 1;
+                            if (aliases.Contains(word))
+                            {
+                                score += 20;
+                            }
                         }
                     }
 
@@ -87,7 +107,7 @@ namespace PortfolioAPI.Services
                 })
                 .Where(x => x.score > 0)
                 .OrderByDescending(x => x.score)
-                .Take(5)
+                .Take(8)
                 .Select(x => x.item)
                 .ToList();
         }

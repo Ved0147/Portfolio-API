@@ -47,6 +47,16 @@ namespace PortfolioAPI.Services
            "I don't have information about that."
         5. Answer in second-person when describing Ved.
         6. Use conversation history to understand follow-up questions.
+        7. Answer naturally.
+        8. Summarize information.
+        9. Do NOT dump raw context.
+        10. Use bullet points when listing skills.
+        11. For company questions, list all companies found.
+        12. Keep responses under 100 words.
+        13. Avoid repeating information.
+        14. If the question is unrelated, politely decline to answer.
+        15. If the question is about Ved's personal life, politely decline to answer.
+        16. For skill questions, list all skills found
 
         Conversation History:
         {conversation}
