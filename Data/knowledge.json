@@ -117,12 +117,19 @@
   {
     "id": "career_goals",
     "category": "career",
-    "content": "Ved is actively building expertise in Cloud Engineering, DevOps, and Generative AI with a focus on scalable systems, automation, and modern software architecture."
+    "title": "Career Goals",
+    "content": "Ved aims to grow into a Cloud and AI-focused Software Engineer, building scalable cloud-native applications, enterprise platforms, and AI-powered solutions."
   },
   {
     "id": "skills_summary",
     "category": "skills",
     "title": "Technical Skills Summary",
     "content": "Ved's primary skills include ASP.NET Core, C#, REST APIs, Entity Framework Core, Firestore, Google Cloud Platform, Cloud Run, Cloud Storage, GitHub Actions, React, TypeScript, JavaScript, HTML, CSS, and Generative AI."
+  },
+  {
+    "id": "experience_summary",
+    "category": "experience",
+    "title": "Work Experience Summary",
+    "content": "Ved has worked at Thoughtspark as an Implementation Consultant and Kombee as a .NET Developer."
   }
 ]
