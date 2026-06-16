@@ -21,7 +21,8 @@ namespace PortfolioAPI.Controllers
             _retrievalService = retrievalService;
             _geminiService = geminiService;
         }
-        private async Task IncrementChatCount()
+        [HttpGet("get-count")]
+        public async Task IncrementChatCount()
         {
             var docRef = _db.Db
                 .Collection("counters")
