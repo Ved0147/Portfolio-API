@@ -13,10 +13,11 @@ namespace PortfolioAPI.Services
             _db = firestoreService.Db;
         }
         private static readonly Dictionary<string, string[]>
-CategoryKeywords = new()
-{
-    ["experience"] =
-    [
+ CategoryKeywords = new()
+ {
+     ["experience"] =
+     [
+         "experience",
         "company",
         "companies",
         "worked",
@@ -24,25 +25,54 @@ CategoryKeywords = new()
         "jobs",
         "career",
         "employment"
-    ],
+     ],
 
-    ["skills"] =
-    [
-        "skill",
+     ["skills"] =
+     [
+         "skill",
         "skills",
         "technology",
         "technologies",
         "stack"
-    ],
+     ],
 
-    ["project"] =
-    [
-        "project",
+     ["project"] =
+     [
+         "project",
         "projects",
         "application",
         "portfolio"
-    ]
-};
+     ],
+
+     ["education"] =
+     [
+         "education",
+        "degree",
+        "college",
+        "university",
+        "study",
+        "studies",
+        "bachelor",
+        "master"
+     ],
+
+     ["career"] =
+     [
+         "career",
+        "goal",
+        "goals",
+        "future",
+        "aspiration"
+     ],
+
+     ["certification"] =
+     [
+         "certification",
+        "certifications",
+        "certificate",
+        "certificates"
+     ]
+ };
         private static readonly HashSet<string> StopWords =
                                                             [
                                                                 "what",
@@ -88,6 +118,27 @@ CategoryKeywords = new()
 
                     foreach (var word in words)
                     {
+                        if (item.Title.Contains(
+                            word,
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            score += 10;
+                        }
+
+                        if (item.Category.Contains(
+                            word,
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            score += 8;
+                        }
+
+                        if (item.Content.Contains(
+                            word,
+                            StringComparison.OrdinalIgnoreCase))
+                        {
+                            score += 2;
+                        }
+
                         if (CategoryKeywords.TryGetValue(
                             item.Category.ToLower(),
                             out var aliases))
